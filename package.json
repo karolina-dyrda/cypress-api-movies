@@ -1,0 +1,26 @@
+{
+  "name": "cypress-api-movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolina-dyrda/cypress-api-movies.git"
+  },
+  "keywords": [
+    "cypress",
+    "api"
+  ],
+  "author": "Karolina Dyrda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karolina-dyrda/cypress-api-movies/issues"
+  },
+  "homepage": "https://github.com/karolina-dyrda/cypress-api-movies#readme",
+  "dependencies": {
+    "cypress": "^12.14.0"
+  }
+}
