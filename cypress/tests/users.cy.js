@@ -1,6 +1,6 @@
 describe("Get users", () => {
-    it("Get all 10 users and list them", () => {
-        cy.request('GET', '/users')
+    it("/users - List all 10 users", () => {
+        cy.request('GET', 'users')
             .then(res => {
                 expect(res.status).to.equal(200)
                 expect(res.body.length).to.equal(10)
@@ -13,7 +13,7 @@ describe("Get users", () => {
             })
     })
 
-    it("Get a single user", () => {
+    it("/users/:userId - Get a user (all 10 users, single call)", () => {
         let allUsersId = [];
 
         cy.request('GET', '/users')
@@ -23,10 +23,16 @@ describe("Get users", () => {
                 });
                     
                     allUsersId.forEach(userId => {
-                        cy.request('GET', `/users/${userId}`).then(res => {
+                        cy.request('GET', `users/${userId}`).then(res => {
                             expect(res.status).to.equal(200)
                     })
             })
+        })
+    })
+
+    it("/users/:userId - Get non-existing user", () => {
+        cy.request('GET', 'users/123').then(res => {
+            expect(res.status).to.equal(404)
         })
     })
 })
