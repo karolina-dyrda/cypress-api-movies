@@ -1,5 +1,7 @@
-describe("Get users", () => {
-    it("/users - List all 10 users", () => {
+/// <reference types="Cypress" />
+
+describe("Manage users", () => {
+    it("GET /users - List all 10 users", () => {
         cy.request('GET', 'users')
             .then(res => {
                 expect(res.status).to.equal(200)
@@ -13,7 +15,7 @@ describe("Get users", () => {
             })
     })
 
-    it("/users/:userId - Get a user (all 10 users, single call)", () => {
+    it("GET /users/:userId - Get a user (all 10 users, single call)", () => {
         let allUsersId = [];
 
         cy.request('GET', '/users')
@@ -30,7 +32,7 @@ describe("Get users", () => {
         })
     })
 
-    it("/users/:userId - Get non-existing user", () => {
+    it("GET /users/:userId - Get non-existing user", () => {
         cy.request('GET', 'users/123').then(res => {
             expect(res.status).to.equal(404)
         })
